@@ -17,13 +17,13 @@ const Header = () => {
       <div className="flex gap-4">
         {["person", "search", "favorite", "shopping_cart"].map((icon) => (
           <span key={icon} className="material-symbols-outlined">
-            {icon}
+            {icon} abc
           </span>
         ))}
       </div>
     </section>
     
-  </header>
+  </header> 
   )
 }
 
