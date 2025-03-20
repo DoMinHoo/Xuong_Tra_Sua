@@ -58,7 +58,7 @@ const ShopPage = () => {
 
         <div className="col-span-9">
           <div className="grid grid-cols-3 gap-8">
-            {data?.map((item, index) => (
+            {data ?.map((item, index) => (
               <div key={item.id || index}>
                 <div className="overflow-hidden">
                   <img src={item.image} alt={item.name} className="hover:scale-125 duration-1000" />
