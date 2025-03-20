@@ -20,6 +20,10 @@ type updateParams = {
     variables: any,
     id: number
 }
+type RemoveParams = {
+    resource: string;
+    id: number;
+};
 const dataProvider = {
     getList: async ({ resource }: getListParams) => {
         try {
@@ -64,7 +68,18 @@ const dataProvider = {
         } catch (error: any) {
             throw new Error(error);
         }
+    },
+    remove: async ({ resource, id }: RemoveParams) => {
+        try {
+            const response = await axios.delete(`${API_URL}/${resource}/${id}`);
+            if (response.status !== 200) throw new Error("Error");
+            return {
+                success: true,
+            };
+        } catch (error: any) {
+            throw new Error(error.response?.data?.message || "Delete failed");
+        }
     }
 }
 
-export const { getList, getOne, create, update, } = dataProvider;
+export const { getList, getOne, create, update, remove } = dataProvider;
