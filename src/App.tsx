@@ -7,11 +7,36 @@ import ProductListPage from "./pages/products/list";
 import ProductAdd from "./pages/products/create";
 import ProductEdit from "./pages/products/edit";
 import PostsPage from "./pages/posts/list";
+import Index from "./pages/(website)";
+import Shop from "./pages/(website)/shop/shop";
+import Checkout from "./pages/(website)/checkout/checkout";
 
 function App() {
     return (
         <>
             <Routes>
+                <Route path="/" element={<Index/>}/>
+                <Route path="shop" element={<Shop />} />
+                <Route path="checkout" element={<Checkout />} />
+
+                <Route
+                    path="admin"
+                    element={
+                        <Authenticated fallback={<Navigate to="/login" replace />}>
+                            <LayoutAdmin>
+                                <Outlet />
+                            </LayoutAdmin>
+                        </Authenticated>
+                    }
+                >
+                    <Route index element={<DashboardPage />} />
+                    <Route path="posts" element={<PostsPage />} />
+                    <Route path="products">
+                        <Route index element={<ProductListPage />} />
+                        <Route path="create" element={<ProductAdd />} />
+                        <Route path="edit/:id" element={<ProductEdit />} />
+                    </Route>
+                </Route>
                 <Route
                     path="admin"
                     element={
