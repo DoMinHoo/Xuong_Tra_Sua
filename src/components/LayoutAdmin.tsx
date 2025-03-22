@@ -34,13 +34,8 @@ function getItem(
 const items: MenuItem[] = [
     getItem("Products", "1", <PieChartOutlined />),
     getItem("Category", "2", <DesktopOutlined />),
-    getItem("User", "sub1", <UserOutlined />, [
-        getItem("Tom", "3"),
-        getItem("Bill", "4"),
-        getItem("Alex", "5"),
-    ]),
-    getItem("Team", "sub2", <TeamOutlined />, [getItem("Team 1", "6"), getItem("Team 2", "8")]),
-    getItem("Files", "9", <FileOutlined />),
+    getItem("User", "3", <DesktopOutlined />),
+    getItem("Order", "4", <DesktopOutlined />)
 ];
 
 type LayoutAdminProps = {

@@ -4,9 +4,18 @@ import useList from "../../hooks/useList";
 import useDelete from "../../hooks/useDelete";
 import ProductFormDrawer from "../../components/ProductDrawer";
 
-const ProductListPage = () => {
+const Shop = () => {
     // Lấy danh sách sản phẩm
     const { data, isLoading, error, isError } = useList({ resource: "products" });
+
+    // Lấy danh sách danh mục
+    const { data: categoriesData, isLoading: categoriesLoading } = useList({ resource: "categories" });
+
+    // Tạo Map để tra cứu danh mục theo ID
+    const categoryMap = new Map();
+    categoriesData?.data?.forEach((category: any) => {
+        categoryMap.set(category.id, category.name);
+    });
 
     // Xóa sản phẩm
     const { mutate: deleteProduct } = useDelete({ resource: "products" });
@@ -48,20 +57,10 @@ const ProductListPage = () => {
             render: (price: any) => `${price.toLocaleString()} VND`,
         },
         {
-            title: "Chất liệu",
-            dataIndex: "material",
-            key: "material",
-            render: (material: string | undefined) => (
-                <div>
-                    {material
-                        ? material.split(",").map((item) => (
-                              <Tag key={item} color={item.length > 5 ? "geekblue" : "green"}>
-                                  {item}
-                              </Tag>
-                          ))
-                        : "Không có thông tin"}
-                </div>
-            ),
+            title: "Danh mục",
+            dataIndex: "categoryId", // Dữ liệu lấy từ categoryId
+            key: "categoryId",
+            render: (categoryId: number) => categoryMap.get(categoryId) || "Không xác định",
         },
         {
             title: "Hành động",
@@ -92,7 +91,7 @@ const ProductListPage = () => {
     ];
 
     // Nếu đang tải dữ liệu
-    if (isLoading) return <Skeleton active />;
+    if (isLoading || categoriesLoading) return <Skeleton active />;
     
     // Nếu xảy ra lỗi
     if (isError) return <div className="text-red-500">Lỗi: {error.message}</div>;
@@ -129,4 +128,4 @@ const ProductListPage = () => {
     );
 };
 
-export default ProductListPage;
+export default Shop;
