@@ -1,5 +1,7 @@
 import React from "react";
+
 import logo from "../pages/Client/img/logo.png";
+
 
 
 const sitemapLinks = ["Home", "Shop", "About", "Contact"];

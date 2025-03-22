@@ -1,10 +1,13 @@
 import React from 'react'
 
+
 import logo from "../pages/Client/img/logo.png"
+
 
 const Header = () => {
   return (
     <header>
+
       <section className="container max-w-screen-xl m-auto flex items-center justify-between py-4">
         <img src={logo} alt="Logo" />
         <ul className="flex gap-8 font-medium text-xl">
@@ -23,7 +26,8 @@ const Header = () => {
         </div>
       </section>
 
-    </header>
+    </header >
+
   )
 }
 

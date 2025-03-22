@@ -9,8 +9,10 @@ import {
 import type { MenuProps } from "antd";
 import { Layout, Menu, theme } from "antd";
 
+
 import ProductListPage from "../pages/Admin/list";
 import CategoryPage from "../pages/Admin/categoryPage";
+
 
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -78,7 +80,9 @@ const LayoutAdmin: React.FC<LayoutAdminProps> = ({ children }) => {
                         }}
                     >
                         {selectedKey === "1" ? (
+
                             <ProductListPage />
+
                         ) : selectedKey === "2" ? (
                             <CategoryPage />
                         ) : (
