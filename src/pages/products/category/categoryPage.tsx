@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Modal, Form, Input, Table, Space, message } from "antd";
-
 import { EditOutlined, DeleteOutlined, PlusOutlined } from "@ant-design/icons";
-import { mockCategories } from "../../../provider/dataCategory";
+import { getList, create, update, remove } from "../../../provider/dataProvider";
 
 type Category = {
     id: number;
@@ -10,13 +9,31 @@ type Category = {
 };
 
 const CategoryPage: React.FC = () => {
-    const [categories, setCategories] = useState<Category[]>(mockCategories);
+    const [categories, setCategories] = useState<Category[]>([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [editingCategory, setEditingCategory] = useState<Category | null>(null);
-
+    const [loading, setLoading] = useState<boolean>(true);
+    
     const [form] = Form.useForm();
 
-    // Mở modal để thêm mới hoặc chỉnh sửa
+    // Lấy danh mục từ API khi tải trang
+    useEffect(() => {
+        fetchCategories();
+    }, []);
+
+    const fetchCategories = async () => {
+        setLoading(true);
+        try {
+            const response = await getList({ resource: "categories" });
+            setCategories(response.data);
+        } catch (error) {
+            message.error("Lỗi khi tải danh mục!");
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    // Mở modal (thêm mới hoặc chỉnh sửa)
     const handleOpenModal = (category?: Category) => {
         setEditingCategory(category || null);
         setIsModalOpen(true);
@@ -29,26 +46,23 @@ const CategoryPage: React.FC = () => {
         form.resetFields();
     };
 
-    // Xử lý khi nhấn Submit form
-    const handleSubmit = (values: { name: string }) => {
-        if (editingCategory) {
-            // Sửa danh mục
-            setCategories((prev) =>
-                prev.map((cat) =>
-                    cat.id === editingCategory.id ? { ...cat, name: values.name } : cat
-                )
-            );
-            message.success("Đã cập nhật danh mục!");
-        } else {
-            // Thêm mới danh mục
-            const newCategory = {
-                id: categories.length + 1,
-                name: values.name,
-            };
-            setCategories((prev) => [...prev, newCategory]);
-            message.success("Đã thêm danh mục mới!");
+    // Xử lý Submit form (thêm hoặc sửa danh mục)
+    const handleSubmit = async (values: { name: string }) => {
+        try {
+            if (editingCategory) {
+                // Gửi yêu cầu cập nhật danh mục
+                await update({ resource: "categories", id: editingCategory.id, variables: values });
+                message.success("Cập nhật danh mục thành công!");
+            } else {
+                // Gửi yêu cầu thêm mới danh mục
+                await create({ resource: "categories", variables: values });
+                message.success("Thêm danh mục mới thành công!");
+            }
+            handleCloseModal();
+            fetchCategories(); // Cập nhật danh sách sau khi thao tác
+        } catch (error) {
+            message.error("Lỗi khi cập nhật danh mục!");
         }
-        handleCloseModal();
     };
 
     // Xóa danh mục
@@ -58,9 +72,14 @@ const CategoryPage: React.FC = () => {
             okText: "Xóa",
             okType: "danger",
             cancelText: "Hủy",
-            onOk: () => {
-                setCategories((prev) => prev.filter((cat) => cat.id !== id));
-                message.success("Đã xóa danh mục!");
+            onOk: async () => {
+                try {
+                    await remove({ resource: "categories", id });
+                    message.success("Đã xóa danh mục!");
+                    fetchCategories(); // Cập nhật danh sách
+                } catch (error) {
+                    message.error("Lỗi khi xóa danh mục!");
+                }
             },
         });
     };
@@ -82,17 +101,10 @@ const CategoryPage: React.FC = () => {
             key: "action",
             render: (_: any, record: Category) => (
                 <Space size="middle">
-                    <Button
-                        icon={<EditOutlined />}
-                        onClick={() => handleOpenModal(record)}
-                    >
+                    <Button icon={<EditOutlined />} onClick={() => handleOpenModal(record)}>
                         Sửa
                     </Button>
-                    <Button
-                        icon={<DeleteOutlined />}
-                        onClick={() => handleDelete(record.id)}
-                        danger
-                    >
+                    <Button icon={<DeleteOutlined />} onClick={() => handleDelete(record.id)} danger>
                         Xóa
                     </Button>
                 </Space>
@@ -102,19 +114,24 @@ const CategoryPage: React.FC = () => {
 
     return (
         <div style={{ padding: 24, background: "#fff", borderRadius: 8 }}>
+            {/* Header */}
             <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 16 }}>
                 <h2>Danh Mục Sản Phẩm</h2>
-                <Button
-                    type="primary"
-                    icon={<PlusOutlined />}
-                    onClick={() => handleOpenModal()}
-                >
-                    Thêm Danh Mục
+                <Button type="primary" icon={<PlusOutlined />} onClick={() => handleOpenModal()}>
+                    Thêm danh mục
                 </Button>
             </div>
-            <Table dataSource={categories} columns={columns} rowKey="id" />
 
-            {/* Modal Thêm/Sửa */}
+            {/* Bảng danh mục */}
+            <Table
+                dataSource={categories}
+                columns={columns}
+                rowKey="id"
+                loading={loading}
+                pagination={{ pageSize: 5 }}
+            />
+
+            {/* Modal Thêm/Sửa danh mục */}
             <Modal
                 title={editingCategory ? "Sửa Danh Mục" : "Thêm Danh Mục"}
                 open={isModalOpen}

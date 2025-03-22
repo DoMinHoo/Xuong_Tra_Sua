@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
-import { Drawer, Button, Form, Input, InputNumber, message, Skeleton } from "antd";
+import { Drawer, Button, Form, Input, InputNumber, message, Skeleton, Select } from "antd";
 import useCreate from "../hooks/useCreate";
 import useUpdate from "../hooks/useUpdate";
 import useOne from "../hooks/useOne";
+import useList from "../hooks/useList"; // Import hook lấy danh sách danh mục
 
 type ProductFormDrawerProps = {
     visible: boolean;
@@ -14,13 +15,20 @@ const ProductFormDrawer: React.FC<ProductFormDrawerProps> = ({ visible, onClose,
     const [form] = Form.useForm();
     const [messageApi, contextHolder] = message.useMessage();
 
+    // Lấy danh sách danh mục
+    const { data: categories, isLoading: isCategoriesLoading } = useList({
+        resource: "categories",
+    });
+
     const { data, isLoading } = useOne({
         resource: "products",
         id: productId ?? 0,
     });
+
     const { mutate: createMutate, isPending: isCreatePending } = useCreate({
         resource: "products",
     });
+
     const { mutate: updateMutate, isPending: isUpdatePending } = useUpdate({
         resource: "products",
         id: productId ?? 0,
@@ -67,14 +75,27 @@ const ProductFormDrawer: React.FC<ProductFormDrawerProps> = ({ visible, onClose,
                     <Form.Item label="Tên sản phẩm" name="name">
                         <Input />
                     </Form.Item>
+                    <Form.Item label="Ảnh sản phẩm" name="image">
+                        <Input />
+                    </Form.Item>
                     <Form.Item label="Giá sản phẩm" name="price">
-                        <InputNumber />
+                        <InputNumber style={{ width: "100%" }} />
                     </Form.Item>
                     <Form.Item label="Mô tả" name="description">
                         <Input.TextArea />
                     </Form.Item>
-                    <Form.Item label="Chất liệu" name="material">
-                        <Input />
+                    <Form.Item
+                        label="Danh mục"
+                        name="categoryId"
+                        rules={[{ required: true, message: "Vui lòng chọn danh mục!" }]}
+                    >
+                        <Select loading={isCategoriesLoading} placeholder="Chọn danh mục">
+                            {categories?.data.map((category: any) => (
+                                <Select.Option key={category.id} value={category.id}>
+                                    {category.name}
+                                </Select.Option>
+                            ))}
+                        </Select>
                     </Form.Item>
                     <Form.Item>
                         <Button
