@@ -1,0 +1,208 @@
+{
+  "products": [
+    {
+      "name": "Bàn Trà Gỗ Tự Nhiên",
+      "image": "https://picsum.photos/200?random=2",
+      "price": 3200000,
+      "description": "Bàn trà gỗ tự nhiên, thiết kế tinh tế.",
+      "categoryId": 6,
+      "id": 2
+    },
+    {
+      "id": 3,
+      "name": "Đèn Trang Trí Vintage",
+      "image": "https://picsum.photos/200?random=3",
+      "description": "Đèn trang trí phong cách vintage, ánh sáng ấm áp.",
+      "price": 1200000,
+      "material": "Kim loại, thủy tinh",
+      "categoryId": 7
+    },
+    {
+      "id": 4,
+      "name": "Sofa Cao Cấp",
+      "image": "https://picsum.photos/200?random=4",
+      "description": "Sofa bọc nỉ cao cấp, phù hợp cho phòng khách.",
+      "price": 7800000,
+      "material": "Vải nỉ, gỗ",
+      "categoryId": 8
+    },
+    {
+      "id": 5,
+      "name": "Kệ Sách Đa Năng",
+      "image": "https://picsum.photos/200?random=5",
+      "description": "Kệ sách tiện lợi với nhiều ngăn chứa.",
+      "price": 2100000,
+      "material": "Gỗ MDF",
+      "categoryId": 5
+    },
+    {
+      "id": 6,
+      "name": "Ghế Bập Bênh Gỗ",
+      "image": "https://picsum.photos/200?random=6",
+      "description": "Ghế bập bênh thư giãn, phong cách cổ điển.",
+      "price": 4500000,
+      "material": "Gỗ sồi",
+      "categoryId": 6
+    },
+    {
+      "id": 7,
+      "name": "Bàn Làm Việc Hiện Đại",
+      "image": "https://picsum.photos/200?random=7",
+      "description": "Bàn làm việc thiết kế tối giản, hiện đại.",
+      "price": 3900000,
+      "material": "Kim loại, gỗ ép",
+      "categoryId": 7
+    },
+    {
+      "id": 8,
+      "name": "Tủ Quần Áo Gỗ Sồi",
+      "image": "https://picsum.photos/200?random=8",
+      "description": "Tủ quần áo rộng rãi, phong cách sang trọng.",
+      "price": 8900000,
+      "material": "Gỗ sồi tự nhiên",
+      "categoryId": 8
+    },
+    {
+      "id": 9,
+      "name": "Đèn Bàn LED Cảm Ứng",
+      "image": "https://picsum.photos/200?random=9",
+      "description": "Đèn bàn cảm ứng với nhiều mức sáng khác nhau.",
+      "price": 950000,
+      "material": "Nhựa, kim loại",
+      "categoryId": 5
+    },
+    {
+      "id": 10,
+      "name": "Bàn Ăn 6 Ghế Sang Trọng",
+      "image": "https://picsum.photos/200?random=10",
+      "description": "Bộ bàn ăn 6 ghế, phong cách hiện đại.",
+      "price": 11500000,
+      "material": "Gỗ óc chó",
+      "categoryId": 6
+    },
+    {
+      "id": 11,
+      "name": "Sofa Da Bò Thật",
+      "image": "https://picsum.photos/200?random=11",
+      "description": "Sofa da bò cao cấp, êm ái và bền bỉ.",
+      "price": 22000000,
+      "material": "Da bò thật",
+      "categoryId": 7
+    },
+    {
+      "id": 12,
+      "name": "Kệ Tivi Hiện Đại",
+      "image": "https://picsum.photos/200?random=12",
+      "description": "Kệ tivi gỗ công nghiệp, kiểu dáng sang trọng.",
+      "price": 3600000,
+      "material": "Gỗ MDF",
+      "categoryId": 8
+    },
+    {
+      "id": 13,
+      "name": "Bàn Trang Điểm Mini",
+      "image": "https://picsum.photos/200?random=13",
+      "description": "Bàn trang điểm nhỏ gọn, tiết kiệm không gian.",
+      "price": 2800000,
+      "material": "Gỗ ép",
+      "categoryId": 5
+    },
+    {
+      "id": 14,
+      "name": "Thảm Lông Cừu Nhập Khẩu",
+      "image": "https://picsum.photos/200?random=14",
+      "description": "Thảm lông cừu mềm mại, giữ ấm tốt.",
+      "price": 5000000,
+      "material": "Lông cừu tự nhiên",
+      "categoryId": 6
+    },
+    {
+      "id": 15,
+      "name": "Giường Ngủ Gỗ Tự Nhiên",
+      "image": "https://picsum.photos/200?random=15",
+      "description": "Giường ngủ chắc chắn, thiết kế hiện đại.",
+      "price": 13500000,
+      "material": "Gỗ tự nhiên",
+      "categoryId": 7
+    },
+    {
+      "id": 16,
+      "name": "Ghế Văn Phòng Công Thái Học",
+      "image": "https://picsum.photos/200?random=16",
+      "description": "Ghế văn phòng hỗ trợ lưng và cột sống.",
+      "price": 4200000,
+      "material": "Nhựa, kim loại",
+      "categoryId": 8
+    },
+    {
+      "id": 17,
+      "name": "Đồng Hồ Treo Tường Gỗ",
+      "image": "https://picsum.photos/200?random=17",
+      "description": "Đồng hồ treo tường phong cách cổ điển.",
+      "price": 1200000,
+      "material": "Gỗ tự nhiên",
+      "categoryId": 5
+    },
+    {
+      "id": 18,
+      "name": "Bộ Cốc Thủy Tinh Cao Cấp",
+      "image": "https://picsum.photos/200?random=18",
+      "description": "Bộ cốc thủy tinh trong suốt, thiết kế đẹp mắt.",
+      "price": 650000,
+      "material": "Thủy tinh",
+      "categoryId": 6
+    },
+    {
+      "id": 19,
+      "name": "Tủ Giày Thông Minh",
+      "image": "https://picsum.photos/200?random=19",
+      "description": "Tủ giày đa năng, tiết kiệm không gian.",
+      "price": 2700000,
+      "material": "Gỗ ép",
+      "categoryId": 7
+    },
+    {
+      "id": 20,
+      "name": "Đệm Cao Su Non 1m8",
+      "image": "https://picsum.photos/200?random=20",
+      "description": "Đệm cao su non đàn hồi tốt, bảo vệ cột sống.",
+      "price": 8900000,
+      "material": "Cao su non",
+      "categoryId": 8
+    },
+    {
+      "name": "a",
+      "price": 3123123,
+      "description": "5345345",
+      "material": "Plastic, metal",
+      "categoryId": 6,
+      "id": 21
+    }
+  ],
+  "categories": [
+    {
+      "name": "Cabinet",
+      "id": 5
+    },
+    {
+      "id": 6,
+      "name": "Tea Table"
+    },
+    {
+      "name": "abc",
+      "id": 7
+    },
+    {
+      "name": "a",
+      "id": 8
+    },
+    {
+      "name": "abc123",
+      "id": 9
+    },
+    {
+      "name": "Sản Phẩm 2",
+      "id": 10
+    }
+  ]
+}
