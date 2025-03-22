@@ -1,0 +1,60 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Ghế Cafe Syltherine",
+      "image": "https://picsum.photos/200",
+      "description": "Ghế cafe phong cách hiện đại, thoải mái.",
+      "price": 2500000
+    },
+    {
+      "id": 2,
+      "name": "Bàn Trà Gỗ Tự Nhiên",
+      "image": "https://picsum.photos/200",
+      "description": "Bàn trà gỗ tự nhiên, thiết kế tinh tế.",
+      "price": 3200000
+    },
+    {
+      "id": 3,
+      "name": "Đèn Trang Trí Vintage",
+      "image": "https://picsum.photos/200",
+      "description": "Đèn trang trí phong cách vintage, ánh sáng ấm áp.",
+      "price": 1200000
+    },
+    {
+      "id": 4,
+      "name": "Sofa Cao Cấp",
+      "image": "https://picsum.photos/200",
+      "description": "Sofa bọc nỉ cao cấp, phù hợp cho phòng khách.",
+      "price": 7800000
+    },
+    {
+      "id": 4,
+      "name": "Sofa Cao Cấp",
+      "image": "https://picsum.photos/200",
+      "description": "Sofa bọc nỉ cao cấp, phù hợp cho phòng khách.",
+      "price": 7800000
+    },
+    {
+      "id": 4,
+      "name": "Sofa Cao Cấp",
+      "image": "https://picsum.photos/200",
+      "description": "Sofa bọc nỉ cao cấp, phù hợp cho phòng khách.",
+      "price": 7800000
+    }
+  ],
+  "categories": [
+    {
+      "id": 4,
+      "name": "Carpet"
+    },
+    {
+      "id": 5,
+      "name": "Cabinet"
+    },
+    {
+      "id": 6,
+      "name": "Tea Table"
+    }
+  ]
+}

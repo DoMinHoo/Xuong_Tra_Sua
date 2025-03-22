@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from 'axios';
 
-const API_URL = 'https://api.fake-rest.refine.dev';
+const API_URL = 'http://localhost:3000';
 
 
 type getListParams = {
