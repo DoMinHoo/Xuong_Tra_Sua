@@ -7,15 +7,15 @@ import {
     UserOutlined,
 } from "@ant-design/icons";
 import type { MenuProps } from "antd";
-import { Breadcrumb, Layout, Menu, theme } from "antd";
+import { Layout, Menu, theme } from "antd";
+
+import ProductListPage from "../pages/products/list";
+import CategoryPage from "../pages/products/category/categoryPage";
+
 
 const { Header, Content, Footer, Sider } = Layout;
 
 type MenuItem = Required<MenuProps>["items"][number];
-
-type LayoutAdminProps = {
-    children: React.ReactNode;
-};
 
 function getItem(
     label: React.ReactNode,
@@ -32,8 +32,8 @@ function getItem(
 }
 
 const items: MenuItem[] = [
-    getItem("Option 1", "1", <PieChartOutlined />),
-    getItem("Option 2", "2", <DesktopOutlined />),
+    getItem("Products", "1", <PieChartOutlined />),
+    getItem("Category", "2", <DesktopOutlined />),
     getItem("User", "sub1", <UserOutlined />, [
         getItem("Tom", "3"),
         getItem("Bill", "4"),
@@ -43,17 +43,33 @@ const items: MenuItem[] = [
     getItem("Files", "9", <FileOutlined />),
 ];
 
-const LayoutAdmin = ({ children }: LayoutAdminProps) => {
+type LayoutAdminProps = {
+    children?: React.ReactNode;
+};
+
+const LayoutAdmin: React.FC<LayoutAdminProps> = ({ children }) => {
     const [collapsed, setCollapsed] = useState(false);
+    const [selectedKey, setSelectedKey] = useState("1");
+
     const {
         token: { colorBgContainer, borderRadiusLG },
     } = theme.useToken();
+
+    const handleMenuClick: MenuProps["onClick"] = (e) => {
+        setSelectedKey(e.key);
+    };
 
     return (
         <Layout style={{ minHeight: "100vh" }}>
             <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
                 <div className="demo-logo-vertical" />
-                <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline" items={items} />
+                <Menu
+                    theme="dark"
+                    defaultSelectedKeys={["1"]}
+                    mode="inline"
+                    items={items}
+                    onClick={handleMenuClick}
+                />
             </Sider>
             <Layout>
                 <Header style={{ padding: 0, background: colorBgContainer }} />
@@ -62,11 +78,17 @@ const LayoutAdmin = ({ children }: LayoutAdminProps) => {
                         style={{
                             padding: 24,
                             minHeight: 360,
-
                             borderRadius: borderRadiusLG,
+                            background: colorBgContainer,
                         }}
                     >
-                        {children}
+                        {selectedKey === "1" ? (
+                            <ProductListPage/>
+                        ) : selectedKey === "2" ? (
+                            <CategoryPage />
+                        ) : (
+                            children
+                        )}
                     </div>
                 </Content>
                 <Footer style={{ textAlign: "center" }}>
