@@ -1,16 +1,21 @@
 import React, { useState } from "react";
 import { Button, Popconfirm, Skeleton, Table, Tag, message } from "antd";
 import useList from "../../hooks/useList";
-
-import ProductFormDrawer from "../../components/ProductDrawer";
 import useDelete from "../../hooks/useDelete";
+import ProductFormDrawer from "../../components/ProductDrawer";
 
 const ProductListPage = () => {
+    // Lấy danh sách sản phẩm
     const { data, isLoading, error, isError } = useList({ resource: "products" });
+
+    // Xóa sản phẩm
     const { mutate: deleteProduct } = useDelete({ resource: "products" });
+
+    // State quản lý drawer (form thêm/sửa)
     const [drawerVisible, setDrawerVisible] = useState(false);
     const [editingProductId, setEditingProductId] = useState<number | null>(null);
 
+    // Xử lý xóa sản phẩm
     const handleDelete = (id: number) => {
         deleteProduct(id, {
             onSuccess: () => message.success("Xóa sản phẩm thành công!"),
@@ -18,11 +23,13 @@ const ProductListPage = () => {
         });
     };
 
-    const dataSource = data?.data.map((product: any) => ({
+    // Chuẩn bị dữ liệu cho bảng
+    const dataSource = data?.data?.map((product: any) => ({
         key: product.id,
         ...product,
-    }));
+    })) || [];
 
+    // Định nghĩa cột cho bảng
     const columns = [
         {
             title: "Tên sản phẩm",
@@ -38,26 +45,28 @@ const ProductListPage = () => {
             title: "Giá",
             dataIndex: "price",
             key: "price",
+            render: (price: any) => `${price.toLocaleString()} VND`,
         },
         {
             title: "Chất liệu",
             dataIndex: "material",
             key: "material",
-            render: (_: any, params2: any) => (
+            render: (material: string | undefined) => (
                 <div>
-                    {params2?.material.split(",").map((item: any) => {
-                        const color = item.length > 5 ? "geekblue" : "green";
-                        return (
-                            <Tag key={item} color={color}>
-                                {item}
-                            </Tag>
-                        );
-                    })}
+                    {material
+                        ? material.split(",").map((item) => (
+                              <Tag key={item} color={item.length > 5 ? "geekblue" : "green"}>
+                                  {item}
+                              </Tag>
+                          ))
+                        : "Không có thông tin"}
                 </div>
             ),
         },
         {
+            title: "Hành động",
             dataIndex: "action",
+            key: "action",
             render: (_: any, item: any) => (
                 <div className="flex space-x-2">
                     <Button
@@ -70,7 +79,7 @@ const ProductListPage = () => {
                         Sửa
                     </Button>
                     <Popconfirm
-                        title="Xóa sản phẩm?"
+                        title="Bạn có chắc chắn muốn xóa?"
                         onConfirm={() => handleDelete(item.id)}
                         okText="Đồng ý"
                         cancelText="Hủy"
@@ -82,12 +91,18 @@ const ProductListPage = () => {
         },
     ];
 
+    // Nếu đang tải dữ liệu
     if (isLoading) return <Skeleton active />;
-    if (isError) return <div>Error: {error.message}</div>;
-    if (!data) return <div>Không có sản phẩm nào</div>;
+    
+    // Nếu xảy ra lỗi
+    if (isError) return <div className="text-red-500">Lỗi: {error.message}</div>;
+
+    // Nếu không có sản phẩm nào
+    if (!dataSource.length) return <div className="text-gray-500">Không có sản phẩm nào.</div>;
 
     return (
         <div>
+            {/* Header */}
             <div className="flex items-center justify-between mb-3">
                 <h2 className="text-xl font-semibold">Sản phẩm</h2>
                 <Button
@@ -101,8 +116,10 @@ const ProductListPage = () => {
                 </Button>
             </div>
 
-            <Table dataSource={dataSource} columns={columns} />
+            {/* Bảng danh sách sản phẩm */}
+            <Table dataSource={dataSource} columns={columns} pagination={{ pageSize: 5 }} />
 
+            {/* Drawer (Form thêm/sửa sản phẩm) */}
             <ProductFormDrawer
                 visible={drawerVisible}
                 onClose={() => setDrawerVisible(false)}

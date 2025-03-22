@@ -10,25 +10,22 @@ import PostsPage from "./pages/posts/list";
 import Index from "./pages/(website)";
 import Shop from "./pages/(website)/shop/shop";
 import Checkout from "./pages/(website)/checkout/checkout";
+import ShopPage from "./pages/products/shop";
 
 function App() {
     return (
         <>
             <Routes>
-                <Route path="/" element={<Index/>}/>
+                <Route path="/" element={<Index />} />
                 <Route path="shop" element={<Shop />} />
                 <Route path="checkout" element={<Checkout />} />
-
-                <Route
-                    path="admin"
-                    element={
-                        <Authenticated fallback={<Navigate to="/login" replace />}>
-                            <LayoutAdmin>
-                                <Outlet />
-                            </LayoutAdmin>
-                        </Authenticated>
-                    }
-                >
+                <Route path="admin" element={
+                    <Authenticated fallback={<Navigate to="/login" replace />}>
+                        <LayoutAdmin>
+                            <Outlet />
+                        </LayoutAdmin>
+                    </Authenticated>
+                }>
                     <Route index element={<DashboardPage />} />
                     <Route path="posts" element={<PostsPage />} />
                     <Route path="products">
@@ -37,16 +34,13 @@ function App() {
                         <Route path="edit/:id" element={<ProductEdit />} />
                     </Route>
                 </Route>
-                <Route
-                    path="admin"
-                    element={
-                        <Authenticated fallback={<Navigate to="/login" replace />}>
-                            <LayoutAdmin>
-                                <Outlet />
-                            </LayoutAdmin>
-                        </Authenticated>
-                    }
-                >
+                <Route path="admin" element={
+                    <Authenticated fallback={<Navigate to="/login" replace />}>
+                        <LayoutAdmin>
+                            <Outlet />
+                        </LayoutAdmin>
+                    </Authenticated>
+                } >
                     <Route index element={<DashboardPage />} />
                     <Route path="posts" element={<PostsPage />} />
                     <Route path="products">
