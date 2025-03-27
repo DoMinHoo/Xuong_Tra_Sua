@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="dist/output.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+      <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body >
+    <header>
+        <section class="container max-w-screen-xl m-auto flex items-center justify-between py-4">
+            <img src="img/logo.png" alt="">
+            <ul class="flex gap-8 font-medium text-xl">
+                <li class="hover:text-orange-200"><a href="index.html">Home</a></li>
+                <li class="hover:text-orange-200"><a href="">Shop</a></li>
+                <li class="hover:text-orange-200"><a href="">About</a></li>
+                <li class="hover:text-orange-200"><a href="">Contact</a></li>
+            </ul>
+            <div class="flex gap-4">
+                <span class="material-symbols-outlined">person</span>
+                <span class="material-symbols-outlined">search</span>
+                <span class="material-symbols-outlined">favorite</span>
+                <span class="material-symbols-outlined">shopping_cart</span>
+            </div>
+        </section>
+    </header>
+    <section>
+        <img src="img/shop_banner.jpg" alt="" class="w-full">
+    </section>
+    <div class="max-w-6xl mx-auto p-10 rounded-lg shadow-md">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div>
+                <h2 class="text-2xl font-bold mb-6">Billing details</h2>
+                <form class="space-y-4">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                        <label class="block text-gray-700 mb-1">First Name</label>
+                        <input type="text" class="w-full p-3 border border-gray-300 rounded-lg">
+                    </div>
+                        <div>
+                            <label class="block text-gray-700 mb-1">Last Name</label>
+                            <input type="text"  class="w-full p-3 border border-gray-300 rounded-lg">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-1">Company Name (Optional)</label>
+                        <input type="text" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-1">Country / Region</label>
+                        <select class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500">
+                            <option>Sri Lanka</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-1">Street address</label>
+                        <input type="text" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-1">Town / City</label>
+                        <input type="text" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-1">Province</label>
+                        <select class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500">
+                            <option>Western Province</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-1">ZIP code</label>
+                        <input type="text" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-1">Phone</label>
+                        <input type="text" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-1">Email address</label>
+                        <input type="email" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 mb-1">Additional information</label>
+                        <textarea class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div>
+                <h2 class="text-2xl font-bold mb-6">Order Summary</h2>
+                <div class="border p-6 rounded-lg">
+                    <div class="flex justify-between mb-4">
+                        <span>Asgaard sofa x 1</span>
+                        <span>Rs. 250,000.00</span>
+                    </div>
+                    <hr>
+                    <div class="flex justify-between my-4">
+                        <span>Subtotal</span>
+                        <span>Rs. 250,000.00</span>
+                    </div>
+                    <div class="flex justify-between font-bold">
+                        <span>Total</span>
+                        <span class="text-yellow-600">Rs. 250,000.00</span>
+                    </div>
+                    <hr class="my-4">
+                    <div class="space-y-2">
+                        <label class="flex items-center space-x-2">
+                            <input type="radio" name="payment" class="form-radio text-yellow-600">
+                            <span>Direct Bank Transfer</span>
+                        </label>
+                        <p class="text-sm text-gray-600">Make your payment directly into our bank account.</p>
+                        <label class="flex items-center space-x-2">
+                            <input type="radio" name="payment" class="form-radio text-yellow-600">
+                            <span>Cash On Delivery</span>
+                        </label>
+                    </div>
+                    <button class="w-full mt-4 bg-yellow-600 text-white py-3 rounded-lg hover:bg-yellow-700">Place order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="bg-[#fff7ed] py-16 mt-16">
+        <div class="container max-w-screen-xl m-auto grid grid-cols-4">
+            <div class="flex gap-5 items-center">
+                <img src="img/onf1.png" alt="">
+                <div>
+                    <h3 class="font-semibold text-xl mb-1">High Quality</h3>
+                    <p class="text-[#898989]">Crafted from top materials</p>
+                </div>
+            </div>
+            <div class="flex gap-5 items-center">
+                <img src="img/onf1.png" alt="">
+                <div>
+                    <h3 class="font-semibold text-xl mb-1">High Quality</h3>
+                    <p class="text-[#898989]">Crafted from top materials</p>
+                </div>
+            </div>
+            <div class="flex gap-5 items-center">
+                <img src="img/onf1.png" alt="">
+                <div>
+                    <h3 class="font-semibold text-xl mb-1">High Quality</h3>
+                    <p class="text-[#898989]">Crafted from top materials</p>
+                </div>
+            </div>
+            <div class="flex gap-5 items-center">
+                <img src="img/onf1.png" alt="">
+                <div>
+                    <h3 class="font-semibold text-xl mb-1">High Quality</h3>
+                    <p class="text-[#898989]">Crafted from top materials</p>
+                </div>
+            </div>
+        </div>
+     </section>
+    <footer class="bg-[#262626] text-white pt-16 pb-8">
+        <div class="container max-w-screen-xl m-auto grid grid-cols-4 gap-8 mb-16">
+            <div>
+                <img src="img/logo.png" alt="" class="mb-4">
+                <p>400 University Drive Suite 200 Coral Gables, FL 33134 USA</p>
+            </div>
+            <div>
+                <h3 class="font-semibold text-xl mb-4">Sitemap</h3>
+                <ul>
+                    <li class="mb-4"><a href="">Home</a></li>
+                    <li class="mb-4"><a href="">Shop</a></li>
+                    <li class="mb-4"><a href="">About</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-semibold text-xl mb-4">Help</h3>
+                <ul>
+                    <li class="mb-4"><a href="">Payment Options</a></li>
+                    <li class="mb-4"><a href="">Returns</a></li>
+                    <li><a href="">Privacy Policies</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-semibold text-xl mb-4">Location</h3>
+                <ul>
+                    <li class="mb-4"><a href="">support@euphoria.in</a></li>
+                    <li class="mb-4"><a href="">Ahmedabad Main Road</a></li>
+                    <li><a href="">Udaipur, India- 313002</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <p class="text-center mt-8">Copyright © 2023 Euphoria Folks Pvt Ltd. All rights reserved.</p>
+     </footer>
+</body>
+</html>
