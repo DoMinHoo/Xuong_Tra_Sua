@@ -204,5 +204,77 @@
       "name": "Sản Phẩm 2",
       "id": 10
     }
+  ],
+  "users": [
+    {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$Vb47IwgedtEr4u4/464ppu4oaiSg/EZBpzDr386dG/Xa64o8RiP0K",
+      "id": 1
+    },
+    {
+      "email": "chien@gmail.com",
+      "password": "123456789",
+      "id": 2
+    },
+    {
+      "email": "chien@gmail.com",
+      "password": "123456789",
+      "id": 3
+    },
+    {
+      "email": "chien@gmail.com",
+      "password": "123456789",
+      "id": 4
+    },
+    {
+      "email": "chien@gmail.com",
+      "password": "123456789",
+      "id": 5
+    },
+    {
+      "email": "chien@gmail.com",
+      "password": "123456789",
+      "id": 6
+    },
+    {
+      "email": "chien@gmail.co",
+      "password": "$2a$10$EXF02LxffUShJE/0oxxQCe2QhUSsUwBFRYwvIXGbX.Id6ewKYuOCm",
+      "id": 7
+    },
+    {
+      "email": "chien@gmail.commmmmmmm",
+      "password": "$2a$10$VZ0IX/F1r4kXcK7tvNae1emLU4nCM0CCuT5BeBkpVzKGueMwbrQNK",
+      "id": 8
+    },
+    {
+      "email": "chien@gmail.commmmmmmmmm",
+      "password": "$2a$10$X/1muLnDkLbqyl89fygc2uLzMwR4NMMvFvFex1O87eT0VIpgIGngm",
+      "id": 9
+    },
+    {
+      "email": "chien5@gmail.com",
+      "password": "$2a$10$04DpVa1K3z5pClFQGNa7Z.quKB77/LZ1n0FLb0jgJfMGX0u4hSU/S",
+      "id": 10
+    },
+    {
+      "email": "chien05@gmail.com",
+      "password": "$2a$10$fEY/W4pl3CFS13l6p8AWSerhVxrNWnlKOGCBRTt6WLpEvMwJpW.Ua",
+      "id": 11
+    },
+    {
+      "email": "chien65@gmail.com",
+      "password": "$2a$10$P..0abMyoRY.5SmuQ0mFneb6.3BevDbC/ron15385/OzUezmZd2iS",
+      "id": 12
+    },
+    {
+      "email": "chien55@gmail.com",
+      "password": "$2a$10$DlL9yraAE0qHmumKk3zssOROlfT9zM5GnK8aixweOUXw./uHrvQRW",
+      "id": 13
+    },
+    {
+      "email": "vuminhchien2005z@gmail.com",
+      "password": "$2a$10$gCD2/IKAgiNb2pJe4LU9/evdl50f50tcBAQpFDQV/T/Xs6J97cOz2",
+      "id": 14
+    }
   ]
 }

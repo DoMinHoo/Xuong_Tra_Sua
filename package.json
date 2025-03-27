@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "server": "json-server-auth db.json --watch",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -17,6 +18,8 @@
     "axios": "^1.8.3",
     "json-server": "^0.17.4",
     "json-server-auth": "^2.1.0",
+    "jwt-decode": "^4.0.0",
+    "nodemon": "^3.1.9",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.3.0",
