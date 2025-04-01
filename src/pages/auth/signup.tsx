@@ -14,7 +14,7 @@ export function SignupPage() {
         };
         mutate(newObject as any, {
             onSuccess: () => {
-                messageApi.success("DDawng ki thành công");
+                messageApi.success("Đăng ký thành công");
                 navigate("/signin");
                 // setTimeout(() => {
                  

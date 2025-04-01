@@ -275,6 +275,31 @@
       "email": "vuminhchien2005z@gmail.com",
       "password": "$2a$10$gCD2/IKAgiNb2pJe4LU9/evdl50f50tcBAQpFDQV/T/Xs6J97cOz2",
       "id": 14
+    },
+    {
+      "email": "vuminhchienz@gmail.com",
+      "password": "$2a$10$D0hqcZJ2l0bAmMLwuHvlpOSunsrRpCEeQjG9Wv8JC8FPTxd1WhHbu",
+      "id": 15
+    },
+    {
+      "email": "abc@gmail.com",
+      "password": "$2a$10$Y.HPx1OhYzWzXwRq4r9oeuIl0qdDoAv32i0uvQ56wFZNf/IjXhnYW",
+      "id": 16
+    },
+    {
+      "email": "abcd@gmail.com",
+      "password": "$2a$10$CJJY7yCKZvB4T5AghKrdPukpV/e6T764VC8njngRLORs0Z0m.12RS",
+      "id": 17
+    },
+    {
+      "email": "abcde@gmail.com",
+      "password": "$2a$10$JgFd5Yo.N1Ft8ioFCnoeYuM3zEsGYpFYRzlOSL1j6k32Xo0eHej1O",
+      "id": 18
+    },
+    {
+      "email": "vuchien1908@gmail.com",
+      "password": "$2a$10$7s.CHLcr5iNKFA4xivekaOQacMJul6bnGLta2EuEGAhHeOhQY3anS",
+      "id": 19
     }
   ]
 }
