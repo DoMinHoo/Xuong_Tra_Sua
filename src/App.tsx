@@ -11,6 +11,8 @@ import PostsPage from "./pages/Client/list";
 import Checkout from "./pages/Client/checkout";
 import Shop from "./pages/Client/shop";
 import HomePage from "./pages/Client";
+import SigninPage from "./pages/auth/signin";
+import SignupPage from "./pages/auth/signup";
 
 
 function App() {
@@ -23,7 +25,7 @@ function App() {
 
                 <Route path="checkout" element={<Checkout />} />
                 <Route path="admin" element={
-                    <Authenticated fallback={<Navigate to="/login" replace />}>
+                    <Authenticated fallback={<Navigate to="/signin" replace />}>
                         <LayoutAdmin>
                             <Outlet />
                         </LayoutAdmin>
@@ -38,7 +40,7 @@ function App() {
                     </Route>
                 </Route>
                 <Route path="admin" element={
-                    <Authenticated fallback={<Navigate to="/login" replace />}>
+                    <Authenticated fallback={<Navigate to="/signin" replace />}>
                         <LayoutAdmin>
                             <Outlet />
                         </LayoutAdmin>
@@ -52,7 +54,8 @@ function App() {
                         <Route path="edit/:id" element={<ProductEdit />} />
                     </Route>
                 </Route>
-                <Route path="login" element={<h1>Login</h1>} />
+                <Route path="signin" element={<SigninPage />} />
+                <Route path="signup" element={<SignupPage />} />
                 <Route path="*" element={<h1>404 not found</h1>} />
             </Routes>
         </>
