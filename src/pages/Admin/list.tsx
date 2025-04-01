@@ -3,6 +3,8 @@ import { Button, Popconfirm, Skeleton, Table, Tag, message } from "antd";
 import useList from "../../hooks/useList";
 import useDelete from "../../hooks/useDelete";
 import ProductFormDrawer from "../../components/ProductDrawer";
+import { EditOutlined, DeleteOutlined} from "@ant-design/icons";
+
 
 const Shop = () => {
     // Lấy danh sách sản phẩm
@@ -68,8 +70,8 @@ const Shop = () => {
             key: "action",
             render: (_: any, item: any) => (
                 <div className="flex space-x-2">
-                    <Button
-                        type="primary"
+                    <Button icon={<EditOutlined />} 
+                        
                         onClick={() => {
                             setEditingProductId(item.id);
                             setDrawerVisible(true);
@@ -83,7 +85,7 @@ const Shop = () => {
                         okText="Đồng ý"
                         cancelText="Hủy"
                     >
-                        <Button type="primary" danger>Xóa</Button>
+                        <Button icon={<DeleteOutlined />}   danger>Xóa</Button>
                     </Popconfirm>
                 </div>
             ),
@@ -92,7 +94,7 @@ const Shop = () => {
 
     // Nếu đang tải dữ liệu
     if (isLoading || categoriesLoading) return <Skeleton active />;
-    
+
     // Nếu xảy ra lỗi
     if (isError) return <div className="text-red-500">Lỗi: {error.message}</div>;
 
