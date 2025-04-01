@@ -1,9 +1,10 @@
 import React from "react";
-import Header from "../../components/header";
-import Footer from "../../components/footer";
+
 import banner from "./img/banner.jpg";
 import sp from "./img/APL100-thumb-6.jpg"
 import sp2 from "./img/gallerry.jpg"
+import Header from "../../components/cient/header";
+import Footer from "../../components/cient/footer";
 
 
 
